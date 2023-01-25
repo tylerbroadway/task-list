@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { TaskInterface } from "@/types";
 import { BASE_URLS } from "@/constants";
 
+import styles from "@/styles/Home.module.css";
+
 const Task: FC<TaskInterface> = ({ id, title, description }) => {
   const router = useRouter();
 
@@ -25,9 +27,11 @@ const Task: FC<TaskInterface> = ({ id, title, description }) => {
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{description}</p>
+    <div className={styles.task}>
+      <div>
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
       <button type="button" onClick={handleComplete}>
         Completed
       </button>

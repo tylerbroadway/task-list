@@ -39,6 +39,7 @@ const TaskBuilder = () => {
 
   return (
     <div className={styles.taskBuilder}>
+      <h2>Add Task</h2>
       <div className={styles.input}>
         <input name="title" placeholder="Title" onChange={handleChange} />
         <textarea
