@@ -7,8 +7,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const data = req.body;
-  const taskId: string = JSON.parse(data);
-  deleteTask(Number(taskId));
+  const id: string = JSON.parse(data);
+  deleteTask(Number(id));
 
   // TO DO: add error handling
 

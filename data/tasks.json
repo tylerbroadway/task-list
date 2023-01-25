@@ -1,1 +1,7 @@
-{"tasks":[{"id":654,"title":"Task 1","description":"The first task"},{"id":167,"title":"Task 2","description":"The second task"},{"id":684,"title":"Task 3","description":"The third task"}]}
+{
+  "tasks": [
+    { "id": 654, "title": "Task 1", "description": "The first task" },
+    { "id": 167, "title": "Task 2", "description": "The second task" },
+    { "id": 889, "title": "Task 3", "description": "The third task" }
+  ]
+}
