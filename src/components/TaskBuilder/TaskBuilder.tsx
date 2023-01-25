@@ -1,10 +1,13 @@
-import { ChangeEventHandler, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 import { TaskInterface } from "@/types";
 import { BASE_URLS } from "@/constants";
 
 import styles from "@/styles/Home.module.css";
 
 const TaskBuilder = () => {
+  const router = useRouter();
   const [task, setTask] = useState<TaskInterface>({
     id: Math.floor(Math.random() * 1000),
     title: "",
@@ -12,14 +15,10 @@ const TaskBuilder = () => {
   });
 
   const handleChange = (event: any) => {
-    console.log(event);
-
     setTask({ ...task, [event.target.name]: event.target.value });
   };
 
   const handleAddTask = async () => {
-    console.log("task: ", task);
-
     const json = JSON.stringify(task);
 
     const res = await fetch(
@@ -33,6 +32,8 @@ const TaskBuilder = () => {
     if (!res.ok) {
       console.log("Failed to save task");
     }
+
+    router.reload();
   };
 
   return (
