@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useRouter } from "next/router";
 
 import { TaskInterface } from "@/types";
@@ -6,7 +6,7 @@ import { BASE_URLS } from "@/constants";
 
 import styles from "@/styles/Home.module.css";
 
-const TaskBuilder = () => {
+const TaskBuilder: FC = () => {
   const router = useRouter();
   const [task, setTask] = useState<TaskInterface>({
     id: Math.floor(Math.random() * 1000),
@@ -34,6 +34,7 @@ const TaskBuilder = () => {
       console.log("Failed to save task");
     }
 
+    // reload to trigger getServerSideProps
     router.reload();
   };
 

@@ -13,11 +13,11 @@ export const getTasks = async () => {
 };
 
 export const saveTask = async (task: TaskInterface) => {
-  const dbDirectory = path.join(process.cwd(), "data");
-  const data = await fs.readFile(dbDirectory + "/tasks.json", "utf8");
+  const data = await getTasks();
   const taskList = JSON.parse(data);
   taskList.tasks.push(task);
 
+  const dbDirectory = path.join(process.cwd(), "data");
   await fs.writeFile(
     dbDirectory + "/tasks.json",
     JSON.stringify(taskList),
@@ -26,8 +26,7 @@ export const saveTask = async (task: TaskInterface) => {
 };
 
 export const deleteTask = async (id: number) => {
-  const dbDirectory = path.join(process.cwd(), "data");
-  const data = await fs.readFile(dbDirectory + "/tasks.json", "utf8");
+  const data = await getTasks();
   const taskList = JSON.parse(data);
 
   taskList.tasks?.forEach((task: TaskInterface, idx: number) => {
@@ -36,6 +35,7 @@ export const deleteTask = async (id: number) => {
     }
   });
 
+  const dbDirectory = path.join(process.cwd(), "data");
   await fs.writeFile(
     dbDirectory + "/tasks.json",
     JSON.stringify(taskList),

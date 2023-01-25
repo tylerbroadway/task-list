@@ -23,6 +23,7 @@ const Task: FC<TaskInterface> = ({ id, title, description }) => {
       console.log("Failed to delete task");
     }
 
+    // reload to trigger getServerSideProps
     router.reload();
   };
 
@@ -33,7 +34,7 @@ const Task: FC<TaskInterface> = ({ id, title, description }) => {
         <p>{description}</p>
       </div>
       <button type="button" onClick={handleComplete}>
-        Completed
+        Complete
       </button>
     </div>
   );
