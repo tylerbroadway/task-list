@@ -9,7 +9,7 @@ const mockTask = {
 };
 
 describe("Task component", () => {
-  test("renders correctly", () => {
+  it("renders correctly", () => {
     const { asFragment } = render(<Task {...mockTask} />);
 
     expect(asFragment()).toMatchSnapshot();

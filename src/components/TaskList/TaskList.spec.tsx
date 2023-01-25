@@ -18,7 +18,7 @@ const mockTaskList = {
 };
 
 describe("Task List", () => {
-  test("renders correctly", () => {
+  it("renders correctly", () => {
     const { asFragment } = render(<TaskList taskList={mockTaskList} />);
 
     expect(asFragment()).toMatchSnapshot();
