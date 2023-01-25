@@ -3,3 +3,9 @@ export interface TaskInterface {
   title: string;
   description: string;
 }
+
+export interface TaskListInterface {
+  taskList: {
+    tasks: TaskInterface[];
+  };
+}

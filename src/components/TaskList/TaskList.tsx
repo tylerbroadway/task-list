@@ -1,16 +1,14 @@
 import { FC } from "react";
 
 import Task from "../Task/Task";
-import { TaskInterface } from "@/types";
+import { TaskListInterface } from "@/types";
 
-interface TaskListInterface {
-  tasks: TaskInterface[];
-}
+const TaskList: FC<TaskListInterface> = ({ taskList }) => {
+  console.log("taskList: ", taskList);
 
-const TaskList: FC<TaskListInterface> = ({ tasks }) => {
   return (
     <div className="taskList">
-      {tasks.map((task) => (
+      {taskList.tasks?.map((task) => (
         <Task {...task} key={task.id} />
       ))}
     </div>
