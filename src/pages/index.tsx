@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
 import TaskList from "@/components/TaskList/TaskList";
+import TaskBuilder from "@/components/TaskBuilder/TaskBuilder";
 import { TaskListInterface } from "@/types";
 import { BASE_URLS } from "@/constants";
 
@@ -10,6 +11,7 @@ const Home: FC<TaskListInterface> = ({ taskList }) => {
   return (
     <>
       <main className={styles.main}>
+        <TaskBuilder />
         <TaskList taskList={taskList} />
       </main>
     </>
@@ -19,8 +21,7 @@ const Home: FC<TaskListInterface> = ({ taskList }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const env: string = process.env.NODE_ENV;
-  const data = await fetch(`${BASE_URLS[env]}/api/get-tasks`);
+  const data = await fetch(`${BASE_URLS[process.env.NODE_ENV]}/api/get-tasks`);
   const json = await data.json();
   const taskList = JSON.parse(json);
 

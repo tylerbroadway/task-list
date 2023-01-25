@@ -1,8 +1,23 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+}
+
+.taskBuilder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 8rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  height: 5rem;
 }

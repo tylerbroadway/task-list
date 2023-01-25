@@ -5,7 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const task = req.body?.task;
+  const data = req.body;
+  const task = JSON.parse(data);
   saveTask(task);
 
   // TO DO: add error handling

@@ -7,8 +7,6 @@ export default async function handler(
 ) {
   const tasks = await getTasks();
 
-  console.log("tasks - api: ", tasks);
-
   // TO DO: add error handling
 
   res.status(200).json(tasks);
