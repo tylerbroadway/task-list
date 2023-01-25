@@ -25,6 +25,7 @@ const TaskBuilder = () => {
       `${BASE_URLS[process.env.NODE_ENV]}/api/save-task`,
       {
         method: "POST",
+        mode: "no-cors",
         body: json,
       }
     );

@@ -12,6 +12,7 @@ const Task: FC<TaskInterface> = ({ id, title, description }) => {
       `${BASE_URLS[process.env.NODE_ENV]}/api/delete-task`,
       {
         method: "POST",
+        mode: "no-cors",
         body: id.toString(),
       }
     );

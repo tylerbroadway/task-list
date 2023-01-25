@@ -21,7 +21,9 @@ const Home: FC<TaskListInterface> = ({ taskList }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const data = await fetch(`${BASE_URLS[process.env.NODE_ENV]}/api/get-tasks`);
+  const data = await fetch(`${BASE_URLS[process.env.NODE_ENV]}/api/get-tasks`, {
+    mode: "no-cors",
+  });
   const json = await data.json();
   const taskList = JSON.parse(json);
 
